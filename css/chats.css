@@ -1,0 +1,216 @@
+.header-wrapper {
+  background-color: white;
+  padding: 5px 0px;
+  top: 0px;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+}
+
+.chat {
+  overflow: visible;
+}
+
+.chats-body {
+  padding: 10px 0px;
+  padding-top: 100px;
+}
+
+.chats-body .header {
+  padding: 0px 20px;
+}
+
+.chats-body .status-bar {
+  padding: 0px 20px;
+}
+
+.chats-body {
+  background-image: url("../images/tatminami.jpg");
+  background-size: 100% 100%;
+  min-height: 120vh;
+}
+
+.chat__write-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.chat__icon-left {
+  position: absolute;
+  left: 10px;
+}
+
+.chat__icon-right {
+  position: absolute;
+  right: 10px;
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 13px 27px -12px rgba(50, 50, 93, 0.25),
+      0 8px 16px -18px rgba(0, 0, 0, 0.3), 0 -6px 16px -8px rgba(0, 0, 0, 0.025);
+  }
+  50% {
+    box-shadow: 0 13px 27px -60px rgba(50, 50, 93, 0.25),
+      0 8px 16px -18px rgba(0, 0, 0, 0.3), 0 -6px 16px -8px rgba(0, 0, 0, 0.025);
+  }
+  100% {
+    box-shadow: 0 13px 27px -12px rgba(50, 50, 93, 0.25),
+      0 8px 16px -18px rgba(0, 0, 0, 0.3), 0 -6px 16px -8px rgba(0, 0, 0, 0.025);
+  }
+}
+
+.chat__write {
+  margin: 0 auto;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0px;
+  padding: 20px 60px;
+  width: 100%;
+  border: none;
+  font-size: 14px;
+  transition: width 0.5s ease-in-out, border-radius 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
+}
+
+.chat__write:focus {
+  outline: none;
+  width: 80%;
+  transform: translateY(-100px);
+  border-radius: 40px;
+  box-shadow: 0 13px 27px -12px rgba(50, 50, 93, 0.25),
+    0 8px 16px -18px rgba(0, 0, 0, 0.3), 0 -6px 16px -8px rgba(0, 0, 0, 0.025);
+  animation: float 4s linear infinite forwards;
+}
+
+.chat__icon {
+  font-size: 18px;
+  transition: 0.3s 0s ease-in-out;
+}
+
+.chat__write:focus ~ .chat__icon {
+  opacity: 0;
+}
+
+.chat__write i {
+  font-size: 22px;
+}
+
+.chat__write-column:nth-child(2) {
+  width: 80%;
+}
+
+.chat__write-column input {
+  padding: 10px 5px;
+}
+
+.chat .chat__messages {
+  border-top: 1px solid #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.chat__messages .timestamp-box {
+  background-color: #fce3ee;
+  font-size: 12px;
+  color: #8e8e8e;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 30px;
+  text-transform: uppercase;
+  font-weight: 550;
+}
+
+.sent-message {
+  align-self: flex-end;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+@keyframes spin {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotateX(1turn);
+  }
+}
+.incoming-message {
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
+
+.message .message__content {
+  width: 100%;
+}
+
+.message .message__bubble {
+  box-shadow: 0 6px 12px -2px rgba(50, 50, 93, 0.25),
+    0 3px 7px -3px rgba(0, 0, 0, 0.3);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.incoming-message .message__author {
+  margin-bottom: 0px;
+  padding-bottom: 5px;
+  display: block;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.incoming-message .message__bubble {
+  border-bottom-left-radius: 0px;
+  background-image: linear-gradient(to left, #ffdde1, #fffcdc);
+}
+
+.sent-message .message__bubble {
+  border-bottom-right-radius: 0px;
+  background-image: linear-gradient(to right, #ffdde1, #fffcdc);
+}
+
+@keyframes incomingAnime {
+  from {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.incoming-message {
+  animation: incomingAnime 0.3s ease-in forwards;
+}
+
+@keyframes sentAnime {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.sent-message {
+  animation: sentAnime 0.3s ease-in forwards;
+}
